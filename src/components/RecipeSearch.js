@@ -1,16 +1,15 @@
 import React, { Component } from "react";
 import axios from "axios";
 import keys from "../config/keys";
+import "./css/RecipeSearch.css";
+
+//background image
+import recipeImage from "./assets/RecipeImage.jpg";
 
 //api calls
 const apiKey = keys.recipeAPIkey;
 const searchURL = "http://www.food2fork.com/api/search";
 const corsURL = "https://cors-anywhere.herokuapp.com/";
-
-const styles = {
-  listStyleType: "none",
-  border: "1px solid black"
-};
 
 class RecipeSearch extends Component {
   constructor(props) {
@@ -46,13 +45,26 @@ class RecipeSearch extends Component {
   render() {
     return (
       <div>
-        <input type="text" onChange={this.onInputChange} />
-        <input type="submit" onClick={this.onSubmitSearch} />
+        <img src={recipeImage} className="filtered absolute" />
+        <label htmlFor="recipe-box" className="label">
+          Recipe Search:
+        </label>
+        <input
+          type="text"
+          name="recipe-box"
+          className="text-input"
+          onChange={this.onInputChange}
+        />
+        <input
+          type="submit"
+          className="primary"
+          onClick={this.onSubmitSearch}
+        />
         <br />
         {this.state.recipes.length > 0 ? (
           <ul>
             {this.state.recipes.map((items, index) => (
-              <p style={styles}>
+              <div>
                 <li key={index + Math.random() * 65650}>
                   title: {items.title}
                 </li>
@@ -66,7 +78,7 @@ class RecipeSearch extends Component {
                 <li key={index + Math.random() * 65650}>
                   source url: <a href={items.source_url}>URL</a>
                 </li>
-              </p>
+              </div>
             ))}
           </ul>
         ) : null}

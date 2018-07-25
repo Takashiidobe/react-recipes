@@ -1,0 +1,14 @@
+.ingredient-search > ul {
+  list-style-type: none;
+}
+
+.ingredient-search > input {
+  text-align: center;
+}
+
+.mapped-items {
+  border: 1px solid black;
+  margin: 0 3rem 3rem 3rem;
+  padding: 2rem;
+  align-content: center;
+}

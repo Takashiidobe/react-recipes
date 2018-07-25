@@ -1,28 +1,65 @@
-.App {
+.primary {
+  display: inline-block;
+  height: 38px;
+  padding: 0 30px;
+  color: #000;
+  background-color: #1eaedb;
+  border-color: #1eaedb;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 38px;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent;
+  border-radius: 4px;
+  border: 1px solid #bbb;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+/* base styles that apply to everything */
+body {
+  font-family: "Lato", Helvetica, "Arial Narrow", Arial, sans-serif;
+  font-size: 62.5%;
+}
+
+.filtered {
+  filter: grayscale(60%) opacity(0.8);
+  z-index: -2;
+  width: 100vw;
+  height: 100vh;
+}
+
+.absolute {
+  position: absolute;
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.centered {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.text-input {
+  height: 38px;
+  padding: 6px 10px;
+  background-color: #fff;
+  border: 1px solid #d1d1d1;
+  border-radius: 4px;
+  box-shadow: none;
+  box-sizing: border-box;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  width: 25%;
 }
 
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.label {
+  font-size: 1.6rem;
+  font-family: "Open Sans", "Trebuchet MS", "Lucida Sans Unicode",
+    "Lucida Grande", "Lucida Sans", Arial, sans-serif;
 }

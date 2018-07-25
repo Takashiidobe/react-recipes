@@ -5,14 +5,14 @@ import * as routes from "../constants/routes";
 import "./css/Navbar.css";
 
 const Navbar = () => (
-  <ul>
-    <li>
+  <ul className="navbar">
+    <li className="nav-item">
       <Link to={routes.home}>Home</Link>
     </li>
-    <li>
-      <Link to={routes.ingredientSearch}>Search using Ingredients</Link>
+    <li className="nav-item">
+      <Link to={routes.ingredientSearch}>Search By Ingredients</Link>
     </li>
-    <li>
+    <li className="nav-item">
       <Link to={routes.recipeSearch}>Search By Recipe</Link>
     </li>
   </ul>

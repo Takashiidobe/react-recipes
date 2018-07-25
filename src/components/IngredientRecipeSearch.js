@@ -1,14 +1,12 @@
 import React, { Component } from "react";
 import axios from "axios";
+import "./css/IngredientRecipeSearch.css";
+import ingredients from "./assets/ingredients.jpg";
 
 const recipeURL = "http://www.recipepuppy.com/api/";
 
 const corsURL = "https://cors-anywhere.herokuapp.com/";
 
-const styles = {
-  listStyleType: "none",
-  border: "1px solid black"
-};
 class IngredientRecipeSearch extends Component {
   constructor(props) {
     super(props);
@@ -65,36 +63,73 @@ class IngredientRecipeSearch extends Component {
 
   render() {
     return (
-      <div>
-        <input type="text" onChange={this.onIngredientOneChange} />
-        <br />
-        <input type="text" onChange={this.onIngredientTwoChange} />
-        <br />
-        <input type="text" onChange={this.onIngredientThreeChange} />
-        <br />
-        <input type="text" onChange={this.onQueryChange} />
-        <br />
-        <input type="submit" onClick={this.submitIngredientSearch} />
-        <br />
-        <p>Or if you want to just search by dish again!</p>
+      <div className="ingredient-search">
+        <img src={ingredients} className="filtered absolute" />
+        <div className="food-form">
+          <label htmlFor="ing1" className="label">
+            Ingredient 1:{" "}
+          </label>
+          <input
+            type="text"
+            name="ing1"
+            className="text-input"
+            onChange={this.onIngredientOneChange}
+          />
+          <br />
+          <label htmlFor="ing2" className="label">
+            Ingredient 2:{" "}
+          </label>
+          <input
+            type="text"
+            name="ing2"
+            className="text-input"
+            onChange={this.onIngredientTwoChange}
+          />
+          <br />
+          <label htmlFor="ing3" className="label">
+            Ingredient 3:{" "}
+          </label>
+          <input
+            type="text"
+            name="ing3"
+            className="text-input"
+            onChange={this.onIngredientThreeChange}
+          />
+          <br />
+          <label htmlFor="dish-name" className="label">
+            Dish Name:{" "}
+          </label>
+          <input
+            type="text"
+            name="dish-name"
+            className="text-input"
+            onChange={this.onQueryChange}
+          />
+          <br />
+          <input
+            type="submit"
+            className="primary"
+            onClick={this.submitIngredientSearch}
+          />
+        </div>
         {this.state.recipes.length > 0 ? (
           <ul>
             {this.state.recipes.map((items, index) => (
-              <p style={styles}>
+              <div className="mapped-items">
+                <li key={index + Math.random() * 65650}>
+                  <img src={items.thumbnail} alt="" />
+                </li>
                 <li key={index + Math.random() * 65650}>
                   title: {items.title}
                 </li>
                 <li key={index + Math.random() * 65650}>
-                  URL: <a href={items.href}>URL</a>
+                  Link to Recipe: <a href={items.href}>Recipe</a>
                 </li>
                 <li key={index + Math.random() * 65650}>
                   Ingredients: {items.ingredients}
                 </li>
                 <br />
-                <li key={index + Math.random() * 65650}>
-                  <img src={items.thumbnail} alt="thumbnail" />
-                </li>
-              </p>
+              </div>
             ))}
           </ul>
         ) : null}
